@@ -14,6 +14,7 @@ class URL2io
         }
         $this->setToken($token);
         $this->setApiUrl('http://api.url2io.com/article');
+        //$this->setApiUrl('http://api.url2io.com/demo/article');
     }
 
     public function setToken($token='')
@@ -52,7 +53,6 @@ class URL2io
         {
             return '';
         }
-        $url = urlencode($url);
         $params = array(
             'token' => $this->getToken(),
             'url' => $url
@@ -67,7 +67,7 @@ class URL2io
         }
         $queryUrl = $this->buildQuery($params);
         //var_dump($queryUrl);die();
-        $result = file_get_contents($queryUrl);
+        $result = json_decode(file_get_contents($queryUrl), true);
         //To do: 处理原始数据
         if($isOrigin)
         {
