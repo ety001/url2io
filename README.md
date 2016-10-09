@@ -27,3 +27,19 @@ $result = $url2io->contentGet($url);
 ?>
 ```
 
+## 其他
+
+### 待完善
+
+* 是否由库来处理返回的结果，还是交给用户处理
+* 完善错误处理机制
+
+### 协议
+
+MIT
+
+### 联系方式
+
+Email: <ety002@gmail.com>
+
+Blog: <http://www.domyself.me>
