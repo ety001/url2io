@@ -17,5 +17,6 @@
         "psr-4": {
             "ETY001\\URL2io\\": "src"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
