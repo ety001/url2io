@@ -39,11 +39,28 @@ class URL2io
     /**
      * $fields: text, next
      */
-    public function contentGet($url='', $fields=null)
+    public function contentGet($url='', $fields=null, $callback=null)
     {
         if($url=='')
         {
             return '';
         }
+        $url = urlencode($url);
+        $params = array(
+            'token' => $this->getToken(),
+            'url' => $url
+        );
+        if($fields)
+        {
+            $params['fields'] = $fields;
+        }
+        if($callback)
+        {
+            $params['callback'] = $callback;
+        }
+        $paramStr = http_build_query($params, '', '&amp;');
+        $queryUrl = $this->getApiUrl() . '?' . $paramStr;
+        $result = @file_get_contents($queryUrl);
+        
     }
 }
