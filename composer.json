@@ -1,5 +1,6 @@
 {
     "name": "ety001/url2io-phpsdk",
+    "version": "1.0.0",
     "description": "A SDK for URL2io.",
     "keywords": ["url2io"],
     "license": "MIT",
@@ -17,6 +18,5 @@
         "psr-4": {
             "ETY001\\URL2io\\": "src"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
