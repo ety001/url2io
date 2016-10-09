@@ -1,0 +1,21 @@
+{
+    "name": "ety001/url2io",
+    "description": "A SDK for URL2io.",
+    "keywords": ["url2io"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ETY001",
+            "email": "ety001@domyself.me"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ETY001\\URL2io\\": "src"
+        }
+    }
+}
