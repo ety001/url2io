@@ -36,10 +36,17 @@ class URL2io
         return $this->apiUrl;
     }
 
+    public function buildQuery($params=array())
+    {
+        $paramStr = http_build_query($params, '', '&amp;');
+        $queryUrl = $this->getApiUrl() . '?' . $paramStr;
+        return $queryUrl;
+    }
+
     /**
      * $fields: text, next
      */
-    public function contentGet($url='', $fields=null, $callback=null)
+    public function contentGet($url='', $fields=null, $callback=null, $isOrigin=true)
     {
         if($url=='')
         {
@@ -58,9 +65,13 @@ class URL2io
         {
             $params['callback'] = $callback;
         }
-        $paramStr = http_build_query($params, '', '&amp;');
-        $queryUrl = $this->getApiUrl() . '?' . $paramStr;
-        $result = @file_get_contents($queryUrl);
-        
+        $queryUrl = $this->buildQuery($params);
+        //var_dump($queryUrl);die();
+        $result = file_get_contents($queryUrl);
+        //To do: 处理原始数据
+        if($isOrigin)
+        {
+            return $result;
+        }
     }
 }
