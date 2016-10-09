@@ -12,7 +12,7 @@ URL2io PHP SDK
 ### composer 安装
 
 ```
-composer require "ety001/url2ioPHPSDK"
+composer require "ety001/url2io-phpsdk"
 ```
 
 ### 在项目中使用
