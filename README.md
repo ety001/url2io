@@ -21,7 +21,7 @@ composer require ety001/url2io-phpsdk
 <?php
 use ETY001\URL2io\URL2io;
 $token = 'Your token';
-$url2io = new URL2io($token);
+$url2io = new URL2io($token);//new URL2io($token , false);使用file_get_contents
 $url = 'the url you want to grab';
 $result = $url2io->contentGet($url);
 ?>
