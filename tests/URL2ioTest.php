@@ -52,13 +52,29 @@ class URL2ioTest extends PHPUnit_Framework_TestCase
         {
             return;
         }
-        $url2io = new URL2io($token);
+        //get by curl
+        $url2io_curl = new URL2io($token);
         $url = 'https://raw.githubusercontent.com/ety001/url2io/master/tests/testfile';//helloworld
-        $t = $url2io->contentGet($url);
+        $t1 = $url2io_curl->contentGet($url);
+
+        //get by file_get_contents
+        $url2io_fgc = new URL2io($token);
+        $t2 = $url2io_fgc->contentGet($url);
+
         //var_dump($t);die();
-        if(isset($t['content']))
+        if(isset($t1['content']))
         {
-            $this->assertEquals($t['content'], '<p>helloworld
+            $this->assertEquals($t1['content'], '<p>helloworld
+</p>');
+        }
+        else
+        {
+            $this->assertEmpty(1);
+        }
+
+        if(isset($t2['content']))
+        {
+            $this->assertEquals($t2['content'], '<p>helloworld
 </p>');
         }
         else
